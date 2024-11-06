@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+<!-- Input Form Container -->
+<div id="inputContainer">
+    <h1>Build Your Resume</h1>
+    <form id="resumeForm" onsubmit="generateResume(event)">
+        <!-- Profile Picture -->
+        <label for="profilePicture">Upload Profile Picture:</label>
+        <input type="file" id="profilePicture" accept="image/*" required onchange="previewImage(event)">
+        <br><br>
+        
+        <!-- Other Input Fields -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required><br><br>
+        
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" id="jobTitle" required><br><br>
+
+        <label for="summary">Summary:</label>
+        <textarea id="summary" required></textarea><br><br>
+
+        <label for="experience">Experience:</label>
+        <textarea id="experience" required></textarea><br><br>
+
+        <label for="education">Education:</label>
+        <textarea id="education" required></textarea><br><br>
+
+        <label for="skills">Skills:</label>
+        <textarea id="skills" required></textarea><br><br>
+
+        <label for="interest">Interest:</label>
+        <textarea id="interest" required></textarea><br><br>
+
+        <button type="submit">Generate Resume</button>
+    </form>
+</div>
+
+<!-- Output Resume Container (Hidden by Default) -->
+<div id="outputContainer" style="display: none;">
+    <div class="resume-container">
+        <div class="left-section">
+            <div id="outputProfileImage" class="profile-image">
+                <img id="previewImage" src="" alt="Profile Picture">
+            </div>
+            <div class="skills-section">
+                <h3>Skills</h3>
+                <ul id="outputSkills"></ul>
+            </div>
+            
+            <div class="interest-section">
+                <h3>Interest</h3>
+                <ul id="outputInterest"></ul>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="header">
+                <h1 id="outputName"></h1>
+                <h2 id="outputJobTitle"></h2>
+            </div>
+            <div class="summary-section">
+                <h3>Summary</h3>
+                <p id="outputSummary"></p>
+            </div>
+            <div class="experience-section">
+                <h3>Experience</h3>
+                <p id="outputExperience"></p>
+            </div>
+            <div class="education-section">
+                <h3>Education</h3>
+                <p id="outputEducation"></p>
+            </div>
+
+              <!-- Action Buttons at the Bottom of Output -->
+    <div class="output-buttons">
+        <button onclick="editResume()">Preview/Edit</button>
+        <button onclick="printResume()">Print</button>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script  src="/script.js"></script>
+</body>
+</html>
